@@ -1,31 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fbicane <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/24 17:45:52 by fbicane           #+#    #+#             */
-/*   Updated: 2024/10/24 19:29:50 by fbicane          ###   ########.fr       */
+/*   Created: 2024/10/24 21:28:06 by fbicane           #+#    #+#             */
+/*   Updated: 2024/10/24 21:34:23 by fbicane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
 
-void	*ft_memmove(void *dest, const void *src, size_t n)
+void	ft_bzero(void *s, size_t n)
 {
-	char	*dest_tc;
-	char	*src_tc;
-	size_t	i;
+	unsigned char	*s_tc;
+	size_t			i;
 
-	dest_tc = ((char *)(dest));
-	src_tc = ((char *)(src));
+	s_tc = ((char *)(s));
 	i = 0;
-	while (src_tc[i] != 0)
+	while (i < n)
 	{
-		if (&src_tc[i] == &dest_tc[x])
-		{
-			
-		}
+		s_tc[i] = 0;
+		i++;
 	}
 }
