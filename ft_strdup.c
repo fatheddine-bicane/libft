@@ -6,7 +6,7 @@
 /*   By: fbicane <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/25 21:29:11 by fbicane           #+#    #+#             */
-/*   Updated: 2024/10/25 22:04:46 by fbicane          ###   ########.fr       */
+/*   Updated: 2024/10/28 13:10:08 by fbicane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ char	*ft_strdup(const char *s1)
 		i++;
 	}
 	s1_dup[i] = 0;
-	return (&s1_dup[0]);
+	return (s1_dup);
 }
 
 #include <stdio.h>
