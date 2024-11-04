@@ -1,29 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fbicane <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/22 17:42:32 by fbicane           #+#    #+#             */
-/*   Updated: 2024/11/01 10:26:20 by fbicane          ###   ########.fr       */
+/*   Created: 2024/10/28 17:56:56 by fbicane           #+#    #+#             */
+/*   Updated: 2024/11/02 16:06:17 by fbicane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libfy.h"
 
-char	*ft_strchr(const char *str, int ch)
+char	**ft_split(char const *s, char c);
 {
 	int	i;
+	int	count;
 
 	i = 0;
-	while (str[i] != 0)
+	count = 0;
+	while (s[i] != 0)
 	{
-		if (str[i] == ch)
-			return ((char *)(&str[i]));
+		while (s[i] == c)
+			i++;
+		if (s[i] != c)
+		{
+			count++;
+			while (s[i] != c)
+				i++;
+		}
 		i++;
 	}
-	if (str[i] == ch)
-		return ((char *)(&str[i]));
-	return (0);
 }

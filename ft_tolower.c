@@ -6,19 +6,13 @@
 /*   By: fbicane <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 17:33:44 by fbicane           #+#    #+#             */
-/*   Updated: 2024/10/22 17:40:11 by fbicane          ###   ########.fr       */
+/*   Updated: 2024/10/31 17:34:15 by fbicane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_tolower(int ch)
 {
-	if (ch >= 97 && ch <= 122)
-	{
-		return (ch);
-	}
-	else if (ch >= 65 && ch <= 90)
-	{
-		ch = ch + 32;
-	}
+	if (ch >= 65 && ch <= 90)
+		return (ch + 32);
 	return (ch);
 }

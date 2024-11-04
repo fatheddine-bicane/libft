@@ -6,16 +6,16 @@
 /*   By: fbicane <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 11:02:19 by fbicane           #+#    #+#             */
-/*   Updated: 2024/10/22 11:06:00 by fbicane          ###   ########.fr       */
+/*   Updated: 2024/10/31 15:51:34 by fbicane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 int	ft_isalpha(int ch)
 {
 	if ((ch >= 65 && ch <= 90) || (ch >= 97 && ch <= 122))
-	{
-		return (ch);
-	}
+		return (1);
 	else
 		return (0);
 }

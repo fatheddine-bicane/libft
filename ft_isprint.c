@@ -6,16 +6,16 @@
 /*   By: fbicane <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 11:10:25 by fbicane           #+#    #+#             */
-/*   Updated: 2024/10/22 11:13:00 by fbicane          ###   ########.fr       */
+/*   Updated: 2024/10/31 15:53:30 by fbicane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	isprint(int ch)
+#include "libft.h"
+
+int	ft_isprint(int ch)
 {
 	if (ch >= 32 && ch <= 126)
-	{
-		return (ch);
-	}
+		return (1);
 	else
 		return (0);
 }

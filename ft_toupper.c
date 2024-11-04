@@ -6,19 +6,15 @@
 /*   By: fbicane <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 15:44:50 by fbicane           #+#    #+#             */
-/*   Updated: 2024/10/22 15:53:18 by fbicane          ###   ########.fr       */
+/*   Updated: 2024/10/31 17:30:14 by fbicane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
 int	ft_toupper(int ch)
 {
-	if (ch >= 65 && ch <= 90)
-	{
-		return (ch);
-	}
-	else if (ch >= 97 && ch <= 122)
-	{
-		ch = ch - 32;
-	}
+	if (ch >= 97 && ch <= 122)
+		return (ch - 32);
 	return (ch);
 }

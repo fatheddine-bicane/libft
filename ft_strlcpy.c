@@ -3,44 +3,30 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fbicane <marvin@42.fr>                     +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/23 15:41:37 by fbicane           #+#    #+#             */
-/*   Updated: 2024/10/23 16:30:24 by fbicane          ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: fbicane <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: fbicane <fbicane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 15:07:23 by fbicane           #+#    #+#             */
-/*   Updated: 2024/10/23 15:38:05 by fbicane          ###   ########.fr       */
+/*   Updated: 2024/11/03 14:09:59 by fbicane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
+#include "libft.h"
 
-size_t	ft_strlcpy(char *dst, const char *src, size_t destsize)
+size_t	ft_strlcpy(char *dest, const char *src, size_t destsize)
 {
-	unsigned int	i;
-	int				j;
+	size_t	i;
 
 	i = 0;
-	while (src[i] != 0 && i < destsize - 1)
+	if (destsize == 1)
+		dest[i] = 0;
+	if (destsize > 1)
 	{
-		dst[i] = src[i];
-		i++;
-	}
-	j = i;
-	dst[j] = 0;
-	if (src[i] != 0)
-	{
-		while (src[i] != 0)
+		while (src[i] != 0 && i < destsize - 1)
+		{
+			dest[i] = src[i];
 			i++;
+		}
+		dest[i] = 0;
 	}
-	return (i);
+	return (ft_strlen(src));
 }

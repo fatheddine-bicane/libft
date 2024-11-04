@@ -6,51 +6,35 @@
 /*   By: fbicane <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/24 17:45:52 by fbicane           #+#    #+#             */
-/*   Updated: 2024/10/25 18:42:01 by fbicane          ###   ########.fr       */
+/*   Updated: 2024/11/01 13:19:37 by fbicane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
+#include "libft.h"
 
 void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	char	*dest_tc;
-	char	*src_tc;
+	unsigned char	*dest_tc;
+	unsigned char	*src_tc;
+	int		i;
 
-	dest_tc = ((char *)(dest));
-	src_tc = ((char *)(src));
+	if (n == 0)
+		return (dest);
+	dest_tc = ((unsigned char *)(dest));
+	src_tc = ((unsigned char *)(src));
 	if (dest_tc <= src_tc)
 	{
-		while (n != 0)
-		{
-			*dest_tc = *src_tc;
-			dest_tc--;
-			src_tc--;
-			n--;
-		}
+		ft_memcpy(dest, src, n);
+		return (dest);
 	}
 	else if (dest_tc > src_tc)
 	{
-		dest_tc += n - 1;
-		src_tc += n - 1;
-		while (n != 0)
+		i = n -1;
+		while (i != 0)
 		{
-			*dest_tc = *src_tc;
-			dest_tc--;
-			src_tc--;
-			n--;
+			dest_tc[i] = src_tc[i];
+			i--;
 		}
 	}
 	return (dest);
-}
-
-#include <string.h>
-#include <stdio.h>
-
-int	main()
-{
-	char dest[23];
-	char src[] = "fatheddine";
-	printf("%s", ft_memmove(dest, src, 9));
-	printf("   %s", memmove(dest, src, 9));
 }

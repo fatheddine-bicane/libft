@@ -6,39 +6,19 @@
 /*   By: fbicane <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/25 21:29:11 by fbicane           #+#    #+#             */
-/*   Updated: 2024/10/28 13:10:08 by fbicane          ###   ########.fr       */
+/*   Updated: 2024/11/03 14:33:19 by fbicane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <stddef.h>
+#include "libft.h"
 
 char	*ft_strdup(const char *s1)
 {
-	size_t			i;
-	char			*s1_dup;
-	
-	i = 0;
-	while (s1[i])
-		i++;
-	s1_dup = (char *)malloc(sizeof (char) * (i + 1));
+	char	*s1_dup;
+
+	s1_dup = (char *)malloc((ft_strlen(s1) + 1));
 	if (!s1_dup)
 		return (0);
-	i = 0;
-	while (s1[i])
-	{
-		s1_dup[i] = s1[i];
-		i++;
-	}
-	s1_dup[i] = 0;
+	ft_strlcpy(s1_dup, s1, (ft_strlen(s1) + 1));
 	return (s1_dup);
-}
-
-#include <stdio.h>
-#include <string.h>
-int main()
-{
-	const char str[] = "fatheddine";
-	printf("%s", ft_strdup(str));
-	printf("     %s", strdup(str));
 }

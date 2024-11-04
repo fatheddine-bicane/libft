@@ -6,16 +6,16 @@
 /*   By: fbicane <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 11:07:52 by fbicane           #+#    #+#             */
-/*   Updated: 2024/10/22 11:09:18 by fbicane          ###   ########.fr       */
+/*   Updated: 2024/10/31 15:53:04 by fbicane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	isascii(int ch)
+#include "libft.h"
+
+int	ft_isascii(int ch)
 {
 	if (ch >= 0 && ch <= 127)
-	{
-		return (ch);
-	}
+		return (1);
 	else
 		return (0);
 }

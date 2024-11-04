@@ -6,20 +6,16 @@
 /*   By: fbicane <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 10:22:26 by fbicane           #+#    #+#             */
-/*   Updated: 2024/10/22 11:06:53 by fbicane          ###   ########.fr       */
+/*   Updated: 2024/10/31 15:52:44 by fbicane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
 int	ft_isalnum(int ch)
 {
-	if (ch >= 48 && ch <= 57)
-	{
-		return (ch);
-	}
-	else if ((ch >= 65 && ch <= 90) || (ch >= 97 && ch <= 122))
-	{
-		return (ch);
-	}
+	if (ft_isalpha(ch) == 1 || ft_isdigit(ch) == 1)
+		return (1);
 	else
 		return (0);
 }

@@ -1,29 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fbicane <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/22 17:42:32 by fbicane           #+#    #+#             */
-/*   Updated: 2024/11/01 10:26:20 by fbicane          ###   ########.fr       */
+/*   Created: 2024/10/29 20:38:44 by fbicane           #+#    #+#             */
+/*   Updated: 2024/10/29 20:58:06 by fbicane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stdlib.h>
 
-char	*ft_strchr(const char *str, int ch)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	int	i;
-
-	i = 0;
-	while (str[i] != 0)
-	{
-		if (str[i] == ch)
-			return ((char *)(&str[i]));
-		i++;
-	}
-	if (str[i] == ch)
-		return ((char *)(&str[i]));
-	return (0);
+	
 }
