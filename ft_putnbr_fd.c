@@ -1,37 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fbicane <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/24 10:31:44 by fbicane           #+#    #+#             */
-/*   Updated: 2024/11/05 11:26:13 by fbicane          ###   ########.fr       */
+/*   Created: 2024/11/05 13:35:14 by fbicane           #+#    #+#             */
+/*   Updated: 2024/11/05 13:43:04 by fbicane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memset(void *s, int c, size_t n)
+void	ft_putnbr_fd(int n, int fd)
 {
-	unsigned char	*s_tc;
-	size_t		i;
+	long	n_long;
 
-	s_tc = ((unsigned char *)(s));
-	i = 0;
-	while (i < n)
+	n_long = n;
+	if (n_long < 0)
 	{
-		s_tc[i] = (unsigned char)c;
-		i++;
+		ft_putchar_fd('-', fd);
+		n_long *= -1;
 	}
-	return (s);
-}
-
-int main()
-{
-	int nb = 4114124;
-	ft_memset(&nb, 57, 1);
-	ft_memset((char *)&nb + 1, 5, 1);
-	ft_memset((char *) &nb + 2, 0, 2);
-	printf("%d", nb);
+	if (n_long > 9)
+	{
+		ft_putnbr_fd(n_long / 10, fd);
+		ft_putchar_fd(n_long % 10 + 48, fd);
+	}
+	else
+	{
+		ft_putchar_fd(n_long + 48, fd);
+	}
 }
