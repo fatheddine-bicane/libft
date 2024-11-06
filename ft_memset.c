@@ -6,7 +6,7 @@
 /*   By: fbicane <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/24 10:31:44 by fbicane           #+#    #+#             */
-/*   Updated: 2024/11/05 17:41:18 by fbicane          ###   ########.fr       */
+/*   Updated: 2024/11/06 19:39:08 by fbicane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,17 @@ void	*ft_memset(void *s, int c, size_t n)
 
 int main()
 {
-	int nb = 4114124;
-	ft_memset(&nb, 57, 1);
-	ft_memset((char *)&nb + 1, 5, 1);
-	ft_memset((char *) &nb + 2, 0, 2);
-	printf("%d", nb);
+	int n = 1337;
+	int nb = 9334040;
+	char *ptr = (char *)&n;
+	char *p = (char *)&nb;
+	int i = 0;
+	while (i < 4)
+	{
+		ft_memset(p + i, *ptr, 1);
+		i++;
+		ptr++;
+	}
+	printf("%d", n);
+
 }
