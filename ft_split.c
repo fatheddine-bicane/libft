@@ -6,7 +6,7 @@
 /*   By: fbicane <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 17:56:56 by fbicane           #+#    #+#             */
-/*   Updated: 2024/11/07 11:15:07 by fbicane          ###   ########.fr       */
+/*   Updated: 2024/11/07 13:14:41 by fbicane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,11 @@ static int	ft_count_words(const char *s, char c)
 
 	i = 0;
 	count = 0;
+	if (s[0] != 0 && s[0] != c)
+	{
+		count++;
+		i = 1;
+	}
 	while (s[i] != 0)
 	{
 		if (s[i] != 0 && s[i - 1] == c && s[i] != c)
@@ -48,7 +53,7 @@ static char	*ft_strncpy(char *dest, const char *src, size_t n)
 	size_t	i;
 
 	i = 0;
-	while (i < n)
+	while (i <= n)
 	{
 		dest[i] = src[i];
 		i++;
@@ -59,9 +64,9 @@ static char	*ft_strncpy(char *dest, const char *src, size_t n)
 
 static char	**arr_str_all(char const *s, char **arr_s, char c, int words)
 {
-	int		i;
+	char	*index;
 	int		len;
-	char const	*index;
+	int		i;
 
 	i = 0;
 	while (i < words)
@@ -69,12 +74,9 @@ static char	**arr_str_all(char const *s, char **arr_s, char c, int words)
 		len = 0;
 		while (*s == c)
 			s++;
-		index = s;
-		while (*s != c && *s != 0)
-		{
-			s++;
+		index = (char *)s;
+		while (*s++ != c && *s != 0)
 			len++;
-		}
 		arr_s[i] = malloc(len + 1);
 		if (!arr_s[i])
 		{
@@ -90,27 +92,21 @@ static char	**arr_str_all(char const *s, char **arr_s, char c, int words)
 
 char	**ft_split(char const *s, char c)
 {
-	char	**arr_s;
 	int		words;
+	char	**arr_s;
 
 	if (!s)
 		return (0);
 	words = ft_count_words(s, c);
-	arr_s = malloc((words + 1)* sizeof(char *));
+	if (words == 0)
+	{
+		arr_s = malloc (sizeof(char *));
+		arr_s[0] = 0;
+		return (arr_s);
+	}
+	arr_s = malloc((words + 1) * sizeof(char *));
 	if (!arr_s)
 		return (0);
 	arr_s = arr_str_all(s, arr_s, c, words);
 	return (arr_s);
-}
-
-int main()
-{
-	char *str = "          test1          test2 test3  f          ";
-	char **arr = ft_split(str, 32);
-	int i = 0;
-	while (arr[i])
-	{
-		printf("%s\n", arr[i]);
-		i++;
-	}
 }
