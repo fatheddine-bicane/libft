@@ -6,11 +6,26 @@
 /*   By: fbicane <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 17:56:56 by fbicane           #+#    #+#             */
-/*   Updated: 2024/11/07 10:22:38 by fbicane          ###   ########.fr       */
+/*   Updated: 2024/11/07 11:15:07 by fbicane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+static void	ft_free(char **ptr, int index)
+{
+	int	i;
+
+	i = index;
+	if (!ptr)
+		return ;
+	while (i >= 0)
+	{
+		free(ptr[i]);
+		i--;
+	}
+	free(ptr);
+}
 
 static int	ft_count_words(const char *s, char c)
 {
@@ -44,9 +59,9 @@ static char	*ft_strncpy(char *dest, const char *src, size_t n)
 
 static char	**arr_str_all(char const *s, char **arr_s, char c, int words)
 {
-	int	i;
-	int	len;
-	char const *index;
+	int		i;
+	int		len;
+	char const	*index;
 
 	i = 0;
 	while (i < words)
@@ -62,7 +77,10 @@ static char	**arr_str_all(char const *s, char **arr_s, char c, int words)
 		}
 		arr_s[i] = malloc(len + 1);
 		if (!arr_s[i])
+		{
+			ft_free(arr_s, i);
 			return (0);
+		}
 		ft_strncpy(arr_s[i], index, len);
 		i++;
 	}
@@ -75,6 +93,8 @@ char	**ft_split(char const *s, char c)
 	char	**arr_s;
 	int		words;
 
+	if (!s)
+		return (0);
 	words = ft_count_words(s, c);
 	arr_s = malloc((words + 1)* sizeof(char *));
 	if (!arr_s)

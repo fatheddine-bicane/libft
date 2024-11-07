@@ -12,15 +12,17 @@
 
 #include "libft.h"
 
-void	ft_free(void *ptr)
+void	ft_free(void **ptr, int index)
 {
 	int	i;
 
+	i = index;
 	if (!ptr)
-		return (0);
-	i = 0;
-	while (i != 0)
+		return ;
+	while (i >= 0)
 	{
-		
+		free(ptr[i]);
+		i--;
 	}
+	free(ptr);
 }
