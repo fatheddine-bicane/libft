@@ -6,7 +6,7 @@
 /*   By: fbicane <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 11:29:25 by fbicane           #+#    #+#             */
-/*   Updated: 2024/11/13 18:07:00 by fbicane          ###   ########.fr       */
+/*   Updated: 2024/11/13 20:16:51 by fbicane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,4 +32,9 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 		lst = lst ->next;
 	}
 	return (new_lst);
+}
+
+int main()
+{
+	
 }
