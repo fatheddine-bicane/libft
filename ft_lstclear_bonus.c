@@ -6,7 +6,7 @@
 /*   By: fbicane <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 10:17:48 by fbicane           #+#    #+#             */
-/*   Updated: 2024/11/13 10:27:06 by fbicane          ###   ########.fr       */
+/*   Updated: 2024/11/13 14:13:39 by fbicane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,3 +27,14 @@ void	ft_lstclear(t_list **lst, void (*del)(void *))
 	free(*lst);
 	*lst = 0;
 }
+/*
+t_list *current;
+
+current = *lst;
+while (currrent)
+{
+	del(current->content);
+	current = current->next;
+}
+free(lst);
+*/
