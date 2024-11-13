@@ -1,32 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
+/*   ft_lstclear_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fbicane <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/30 14:20:25 by fbicane           #+#    #+#             */
-/*   Updated: 2024/11/13 12:35:54 by fbicane          ###   ########.fr       */
+/*   Created: 2024/11/13 10:17:48 by fbicane           #+#    #+#             */
+/*   Updated: 2024/11/13 10:27:06 by fbicane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putchar_fd(char c, int fd)
+void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
-	write(fd, &c, 1);
-}
-#include <fcntl.h>
-#include <stdio.h>
-int main ()
-{
-	char buffer[20];
-	int fd = open("file.txt", O_CREAT | O_RDWR, 0666);
-	if (fd == -1) {
-        perror("Error opening file");
-        return 1;
-    }
-	ft_putchar_fd('h', fd);
-	read(fd, buffer, 8);
-	printf("%s", buffer);
+	t_list	*lst_flag;
+
+	if (!lst || !del)
+		return ;
+	while (*lst != 0)
+	{
+		lst_flag = (*lst)->next;
+		ft_delone(*lst, del);
+		lst = lst_flag;
+	}
+	free(*lst);
+	*lst = 0;
 }

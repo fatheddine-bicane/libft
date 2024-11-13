@@ -1,32 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
+/*   ft_lstiter_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fbicane <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/30 14:20:25 by fbicane           #+#    #+#             */
-/*   Updated: 2024/11/13 12:35:54 by fbicane          ###   ########.fr       */
+/*   Created: 2024/11/13 10:29:11 by fbicane           #+#    #+#             */
+/*   Updated: 2024/11/13 11:21:17 by fbicane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putchar_fd(char c, int fd)
+void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	write(fd, &c, 1);
-}
-#include <fcntl.h>
-#include <stdio.h>
-int main ()
-{
-	char buffer[20];
-	int fd = open("file.txt", O_CREAT | O_RDWR, 0666);
-	if (fd == -1) {
-        perror("Error opening file");
-        return 1;
-    }
-	ft_putchar_fd('h', fd);
-	read(fd, buffer, 8);
-	printf("%s", buffer);
+	t_list	*lst_cpy;
+	if (!lst || !f)
+		return ;
+	lst_cpy = lst;
+	while (lst_cpy != 0)
+	{
+		(*f)(lst_cpy->content);
+		lst_cpy = lst_cpy->next;
+	}
 }
