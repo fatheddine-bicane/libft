@@ -6,7 +6,7 @@
 /*   By: fbicane <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/24 17:45:52 by fbicane           #+#    #+#             */
-/*   Updated: 2024/11/01 13:19:37 by fbicane          ###   ########.fr       */
+/*   Updated: 2024/11/14 09:21:38 by fbicane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 {
 	unsigned char	*dest_tc;
 	unsigned char	*src_tc;
-	int		i;
+	int				i;
 
 	if (n == 0)
 		return (dest);

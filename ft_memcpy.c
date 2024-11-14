@@ -6,7 +6,7 @@
 /*   By: fbicane <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/24 17:05:18 by fbicane           #+#    #+#             */
-/*   Updated: 2024/11/01 13:17:53 by fbicane          ###   ########.fr       */
+/*   Updated: 2024/11/14 09:21:20 by fbicane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
-	size_t	i;
+	size_t			i;
 	unsigned char	*dest_tc;
 	unsigned char	*src_tc;
 

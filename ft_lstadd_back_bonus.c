@@ -1,26 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lastadd_back_bonus.c                            :+:      :+:    :+:   */
+/*   ft_lstadd_back_bonus.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fbicane <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 15:18:14 by fbicane           #+#    #+#             */
-/*   Updated: 2024/11/12 16:48:55 by fbicane          ###   ########.fr       */
+/*   Updated: 2024/11/14 11:56:19 by fbicane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstadd_back(t_list **lst, tlist *new)
+void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	t_list	*lst_tmp;
+	t_list *lst_clone;
 
 	if (!new)
 		return ;
-	if (!lst)
+	if (!*lst)
+	{
 		*lst = new;
-	lst_tmp = lst;
-	lst_tmp = ft_lstlat(lst_tmp);
-	lst_tmp->next = new;
+		return ;
+	}
+	lst_clone = ft_lstlast(*lst);
+	lst_clone->next = new;
 }

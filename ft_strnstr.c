@@ -6,7 +6,7 @@
 /*   By: fbicane <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/01 14:02:44 by fbicane           #+#    #+#             */
-/*   Updated: 2024/11/13 18:10:02 by fbicane          ###   ########.fr       */
+/*   Updated: 2024/11/14 09:23:31 by fbicane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 	size_t	i;
 	size_t	j;
 
-	if (haystack == 0 && needle == 0)
-		
 	if (haystack == NULL && len == 0)
 		return (0);
 	i = 0;
