@@ -6,7 +6,7 @@
 /*   By: fbicane <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 18:09:17 by fbicane           #+#    #+#             */
-/*   Updated: 2024/11/04 20:28:05 by fbicane          ###   ########.fr       */
+/*   Updated: 2024/11/15 20:28:11 by fbicane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,12 +52,10 @@ static int	ft_int_length(long n)
 static char	*ft_int_reversed(int n)
 {
 	long	tmp_n;
-	int		i;
 	int		j;
 	char	*int_str;
 
 	j = 0;
-	i = 0;
 	tmp_n = n;
 	int_str = malloc(ft_int_length(tmp_n) + 1);
 	if (!int_str)
