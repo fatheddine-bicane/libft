@@ -6,7 +6,7 @@
 /*   By: fbicane <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 14:58:30 by fbicane           #+#    #+#             */
-/*   Updated: 2024/11/02 17:30:11 by fbicane          ###   ########.fr       */
+/*   Updated: 2024/11/15 18:02:29 by fbicane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 int	ft_atoi(const char *str)
 {
-	int	i;
-	int	nb;
-	int	sign;
+	long	nb;
+	int		i;
+	int		sign;
 
 	i = 0;
 	nb = 0;

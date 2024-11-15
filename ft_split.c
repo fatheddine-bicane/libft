@@ -6,25 +6,25 @@
 /*   By: fbicane <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 17:56:56 by fbicane           #+#    #+#             */
-/*   Updated: 2024/11/07 13:14:41 by fbicane          ###   ########.fr       */
+/*   Updated: 2024/11/15 18:43:12 by fbicane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static void	ft_free(char **ptr, int index)
+static void	ft_free(char **arr_s, int index)
 {
 	int	i;
 
 	i = index;
-	if (!ptr)
+	if (arr_s)
 		return ;
 	while (i >= 0)
 	{
-		free(ptr[i]);
+		free(arr_s[i]);
 		i--;
 	}
-	free(ptr);
+	free (arr_s);
 }
 
 static int	ft_count_words(const char *s, char c)
