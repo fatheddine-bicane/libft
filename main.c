@@ -1,7 +1,10 @@
 #include "libft.h"
 int main ()
 {
-	char *a = memchr("fatheddine", 0, 32);
-	char *b = ft_memchr("fatheddine", 0, 32);
-	printf("%s\n%s", a, b);
+	char a[10];
+	char x[10];
+	char s[] = "fatheddine";
+	memcpy(a, s, 4);
+	ft_memcpy(x, s, 4);
+	printf("%s\n%s", a, x);
 }
