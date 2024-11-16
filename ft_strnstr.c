@@ -6,7 +6,7 @@
 /*   By: fbicane <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/01 14:02:44 by fbicane           #+#    #+#             */
-/*   Updated: 2024/11/14 09:23:31 by fbicane          ###   ########.fr       */
+/*   Updated: 2024/11/16 09:48:39 by fbicane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,4 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 		i++;
 	}
 	return (0);
-}
-int main ()
-{
-	ft_strnstr(NULL,"hello",0);
 }

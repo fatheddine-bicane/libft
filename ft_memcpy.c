@@ -6,7 +6,7 @@
 /*   By: fbicane <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/24 17:05:18 by fbicane           #+#    #+#             */
-/*   Updated: 2024/11/15 21:38:18 by fbicane          ###   ########.fr       */
+/*   Updated: 2024/11/15 21:46:15 by fbicane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	i = 0;
 	dest_tc = ((unsigned char *)(dest));
 	src_tc = ((unsigned char *)(src));
-	while (src_tc[i] != 0 && i < n)
+	while (i < n)
 	{
 		dest_tc[i] = src_tc[i];
 		i++;

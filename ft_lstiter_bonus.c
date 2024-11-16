@@ -6,7 +6,7 @@
 /*   By: fbicane <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 10:29:11 by fbicane           #+#    #+#             */
-/*   Updated: 2024/11/14 09:19:53 by fbicane          ###   ########.fr       */
+/*   Updated: 2024/11/16 09:49:57 by fbicane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
 	t_list	*lst_cpy;
-	
+
 	if (!lst || !f)
 		return ;
 	lst_cpy = lst;

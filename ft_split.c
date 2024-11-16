@@ -6,7 +6,7 @@
 /*   By: fbicane <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 17:56:56 by fbicane           #+#    #+#             */
-/*   Updated: 2024/11/15 18:43:12 by fbicane          ###   ########.fr       */
+/*   Updated: 2024/11/16 15:42:41 by fbicane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static void	ft_free(char **arr_s, int index)
 	int	i;
 
 	i = index;
-	if (arr_s)
+	if (!arr_s)
 		return ;
 	while (i >= 0)
 	{
@@ -34,14 +34,9 @@ static int	ft_count_words(const char *s, char c)
 
 	i = 0;
 	count = 0;
-	if (s[0] != 0 && s[0] != c)
-	{
-		count++;
-		i = 1;
-	}
 	while (s[i] != 0)
 	{
-		if (s[i] != 0 && s[i - 1] == c && s[i] != c)
+		if ((i == 0 && s[i] != c) || (s[i - 1] == c && s[i] != c))
 			count++;
 		i++;
 	}
@@ -53,9 +48,14 @@ static char	*ft_strncpy(char *dest, const char *src, size_t n)
 	size_t	i;
 
 	i = 0;
-	while (i <= n)
+	while (i < n)
 	{
 		dest[i] = src[i];
+		i++;
+	}
+	while (i < n)
+	{
+		dest[i] = 0;
 		i++;
 	}
 	dest[i] = 0;
@@ -101,6 +101,8 @@ char	**ft_split(char const *s, char c)
 	if (words == 0)
 	{
 		arr_s = malloc (sizeof(char *));
+		if (!arr_s)
+			return (0);
 		arr_s[0] = 0;
 		return (arr_s);
 	}
@@ -109,4 +111,14 @@ char	**ft_split(char const *s, char c)
 		return (0);
 	arr_s = arr_str_all(s, arr_s, c, words);
 	return (arr_s);
+}
+int main()
+{
+	char **arr = ft_split("lorem imi.", 'i');
+	int i = 0;
+	while (arr[i])
+	{
+		printf("%s\n", arr[i]);
+		i++;
+	}
 }

@@ -6,7 +6,7 @@
 /*   By: fbicane <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 15:18:14 by fbicane           #+#    #+#             */
-/*   Updated: 2024/11/14 11:56:19 by fbicane          ###   ########.fr       */
+/*   Updated: 2024/11/16 09:49:37 by fbicane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	t_list *lst_clone;
+	t_list	*lst_clone;
 
 	if (!new)
 		return ;

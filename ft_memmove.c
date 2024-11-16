@@ -6,7 +6,7 @@
 /*   By: fbicane <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/24 17:45:52 by fbicane           #+#    #+#             */
-/*   Updated: 2024/11/14 09:21:38 by fbicane          ###   ########.fr       */
+/*   Updated: 2024/11/16 10:19:28 by fbicane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 	else if (dest_tc > src_tc)
 	{
 		i = n -1;
-		while (i != 0)
+		while (i >= 0)
 		{
 			dest_tc[i] = src_tc[i];
 			i--;
