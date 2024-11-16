@@ -6,38 +6,18 @@
 /*   By: fbicane <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 18:09:17 by fbicane           #+#    #+#             */
-/*   Updated: 2024/11/15 20:28:11 by fbicane          ###   ########.fr       */
+/*   Updated: 2024/11/16 21:41:35 by fbicane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-
-static char	*ft_strrev(char *str1, char *str2)
-{
-	int	i;
-	int	j;
-
-	i = 0;
-	j = 0;
-	while (str1[j] != 0)
-		j++;
-	j--;
-	while (j >= 0)
-	{
-		str2[i] = str1[j];
-		i++;
-		j--;
-	}
-	str2[i] = 0;
-	return (str2);
-}
 
 static int	ft_int_length(long n)
 {
 	int	i;
 
 	i = 0;
-	if (n < 0)
+	if (n <= 0)
 		i++;
 	if (n < 0)
 		n *= -1;
@@ -49,29 +29,25 @@ static int	ft_int_length(long n)
 	return (i);
 }
 
-static char	*ft_int_reversed(int n)
+static char	*convert(char *result, int len, long num)
 {
-	long	tmp_n;
-	int		j;
-	char	*int_str;
+	int	i;
 
-	j = 0;
-	tmp_n = n;
-	int_str = malloc(ft_int_length(tmp_n) + 1);
-	if (!int_str)
-		return (0);
-	if (tmp_n < 0)
-		tmp_n *= -1;
-	while (tmp_n > 0)
+	i = 0;
+	if (num < 0)
 	{
-		int_str[j] = tmp_n % 10 + 48;
-		tmp_n = tmp_n / 10;
-		j++;
+		result[0] = '-';
+		num *= -1;
+		i = 1;
 	}
-	if (n < 0)
-		int_str[j++] = '-';
-	int_str[j] = 0;
-	return (int_str);
+	result[len] = '\0';
+	len--;
+	while (i <= len)
+	{
+		result[len--] = (num % 10) + '0';
+		num /= 10;
+	}
+	return (result);
 }
 
 char	*ft_itoa(int n)
@@ -83,7 +59,9 @@ char	*ft_itoa(int n)
 	{
 		i = 0;
 		n_str = malloc(2);
-		n_str[i] = 48;
+		if (!n_str)
+			return (0);
+		n_str[i] = '0';
 		i++;
 		n_str[i] = 0;
 		return (n_str);
@@ -91,6 +69,6 @@ char	*ft_itoa(int n)
 	n_str = malloc(ft_int_length(n) + 1);
 	if (!n_str)
 		return (0);
-	ft_strrev(ft_int_reversed(n), n_str);
+	n_str = convert(n_str, ft_int_length(n), n);
 	return (n_str);
 }

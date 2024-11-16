@@ -6,7 +6,7 @@
 /*   By: fbicane <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 11:29:25 by fbicane           #+#    #+#             */
-/*   Updated: 2024/11/16 09:50:44 by fbicane          ###   ########.fr       */
+/*   Updated: 2024/11/16 22:38:33 by fbicane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,25 @@
 
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	t_list	*lst_clone;
-	t_list	*new_lst;
+	t_list	*newlst;
+	t_list	*head;
 
 	if (!lst || !f || !del)
-		return (0);
-	new_lst = 0;
-	while (lst != 0)
+		return (NULL);
+	head = ft_lstnew(f(lst->content));
+	if (!head)
+		return (NULL);
+	lst = lst->next;
+	while (lst != NULL)
 	{
-		lst_clone = ft_lstnew((*f)(lst->content));
-		if (!lst_clone)
+		newlst = ft_lstnew(f(lst->content));
+		if (!newlst)
 		{
-			ft_lstclear(&new_lst, del);
-			return (0);
+			ft_lstclear(&head, del);
+			return (NULL);
 		}
-		ft_lstadd_back(&new_lst, lst_clone);
-		lst = lst ->next;
+		ft_lstadd_back(&head, newlst);
+		lst = lst->next;
 	}
-	return (new_lst);
+	return (head);
 }

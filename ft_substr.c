@@ -6,7 +6,7 @@
 /*   By: fbicane <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/25 22:05:50 by fbicane           #+#    #+#             */
-/*   Updated: 2024/11/03 22:17:35 by fbicane          ###   ########.fr       */
+/*   Updated: 2024/11/16 17:17:55 by fbicane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	s_len = ft_strlen(s);
 	if (start >= s_len)
 		return (ft_strdup(""));
+	if (start + len > s_len)
+		len = s_len - start;
 	i = 0;
 	s_sub = (char *)malloc(len + 1);
 	if (!s_sub)

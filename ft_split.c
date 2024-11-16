@@ -6,23 +6,23 @@
 /*   By: fbicane <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 17:56:56 by fbicane           #+#    #+#             */
-/*   Updated: 2024/11/16 15:42:41 by fbicane          ###   ########.fr       */
+/*   Updated: 2024/11/16 17:56:14 by fbicane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static void	ft_free(char **arr_s, int index)
+static void	ft_free(char **arr_s)
 {
 	int	i;
 
-	i = index;
+	i = 0;
 	if (!arr_s)
 		return ;
-	while (i >= 0)
+	while (arr_s[i] != 0)
 	{
 		free(arr_s[i]);
-		i--;
+		i++;
 	}
 	free (arr_s);
 }
@@ -36,7 +36,7 @@ static int	ft_count_words(const char *s, char c)
 	count = 0;
 	while (s[i] != 0)
 	{
-		if ((i == 0 && s[i] != c) || (s[i - 1] == c && s[i] != c))
+		if ((i == 0 && s[i] != c) || (i > 0 && s[i - 1] == c && s[i] != c))
 			count++;
 		i++;
 	}
@@ -53,18 +53,12 @@ static char	*ft_strncpy(char *dest, const char *src, size_t n)
 		dest[i] = src[i];
 		i++;
 	}
-	while (i < n)
-	{
-		dest[i] = 0;
-		i++;
-	}
 	dest[i] = 0;
 	return (dest);
 }
 
 static char	**arr_str_all(char const *s, char **arr_s, char c, int words)
 {
-	char	*index;
 	int		len;
 	int		i;
 
@@ -74,16 +68,18 @@ static char	**arr_str_all(char const *s, char **arr_s, char c, int words)
 		len = 0;
 		while (*s == c)
 			s++;
-		index = (char *)s;
-		while (*s++ != c && *s != 0)
+		while (*s != c && *s != 0)
+		{
 			len++;
+			s++;
+		}
 		arr_s[i] = malloc(len + 1);
 		if (!arr_s[i])
 		{
-			ft_free(arr_s, i);
+			ft_free(arr_s);
 			return (0);
 		}
-		ft_strncpy(arr_s[i], index, len);
+		ft_strncpy(arr_s[i], s - len, len);
 		i++;
 	}
 	arr_s[i] = 0;
@@ -111,14 +107,4 @@ char	**ft_split(char const *s, char c)
 		return (0);
 	arr_s = arr_str_all(s, arr_s, c, words);
 	return (arr_s);
-}
-int main()
-{
-	char **arr = ft_split("lorem imi.", 'i');
-	int i = 0;
-	while (arr[i])
-	{
-		printf("%s\n", arr[i]);
-		i++;
-	}
 }
