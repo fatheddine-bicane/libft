@@ -6,7 +6,7 @@
 /*   By: fbicane <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 18:09:17 by fbicane           #+#    #+#             */
-/*   Updated: 2024/11/16 21:41:35 by fbicane          ###   ########.fr       */
+/*   Updated: 2024/11/17 11:09:56 by fbicane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,25 +29,25 @@ static int	ft_int_length(long n)
 	return (i);
 }
 
-static char	*convert(char *result, int len, long num)
+static char	*convert(char *n_str, int len, long num)
 {
 	int	i;
 
 	i = 0;
 	if (num < 0)
 	{
-		result[0] = '-';
+		n_str[0] = '-';
 		num *= -1;
 		i = 1;
 	}
-	result[len] = '\0';
+	n_str[len] = '\0';
 	len--;
 	while (i <= len)
 	{
-		result[len--] = (num % 10) + '0';
+		n_str[len--] = (num % 10) + '0';
 		num /= 10;
 	}
-	return (result);
+	return (n_str);
 }
 
 char	*ft_itoa(int n)

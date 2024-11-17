@@ -6,7 +6,7 @@
 /*   By: fbicane <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 14:44:23 by fbicane           #+#    #+#             */
-/*   Updated: 2024/11/16 15:25:24 by fbicane          ###   ########.fr       */
+/*   Updated: 2024/11/17 11:54:08 by fbicane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,8 +55,10 @@ char	*ft_strtrim(char const *s1, char const *set)
 	int		j;
 	char	*str;
 
-	if (!s1 || !set)
+	if (!s1)
 		return (0);
+	if (!set)
+		return (ft_strdup((const char *)s1));
 	hash_table(check_tab, set);
 	i = ft_strlen(s1) - 1;
 	while (check_tab[(unsigned char)s1[i]] == 1)

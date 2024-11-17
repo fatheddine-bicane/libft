@@ -6,7 +6,7 @@
 /*   By: fbicane <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 10:36:29 by fbicane           #+#    #+#             */
-/*   Updated: 2024/11/16 16:40:54 by fbicane          ###   ########.fr       */
+/*   Updated: 2024/11/17 12:12:29 by fbicane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,6 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <stdint.h>
-# include <stdio.h>
-# include <string.h>
 
 typedef struct s_list
 {
